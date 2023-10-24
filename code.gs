@@ -151,7 +151,7 @@ function wingman_Boss_Record(bossId) {
   try {
     return seconds_To_Duration(JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era=this").getContentText())?.duration_top/1000);
   } catch (error) {
-    return "00:00:00"
+    return "-"
   }
 }
 //=======================================================================================================================================================================
