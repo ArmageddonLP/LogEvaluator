@@ -119,5 +119,5 @@ function wingman_Boss_Name(bossId) {
  *    Id of the boss on wingman
  */
 function wingman_Boss_Record(bossId) {
-  return seconds_To_Duration(JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era=this").getContentText())?.duration_top/1000);
+  return secondsToDuration(JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era=this").getContentText())?.duration_top/1000);
 }
