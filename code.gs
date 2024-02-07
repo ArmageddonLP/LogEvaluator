@@ -98,7 +98,6 @@ function secondsToDuration(secs) {
   const seconds = secs % 60;
   return hours.toString().padStart(2,"0")+":"+minutes.toString().padStart(2,"0")+":"+seconds.toString().padStart(2,"0");
 }
-
 /**
  * Returns the name of a boss on wingman by bossId.
  * 1. bossId: CellReference - ex.: 19691
@@ -112,7 +111,6 @@ function wingman_Boss_Name(bossId) {
   }
   return JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/bosses").getContentText())?.[bossId]?.name + cm;
 }
-
 /**
  * Returns the record of a boss on wingman by bossId and patch era.
  * 1. bossId: CellReference - ex.: 19691
@@ -122,4 +120,14 @@ function wingman_Boss_Name(bossId) {
  */
 function wingman_Boss_Record(bossId, era) {
   return secondsToDuration(JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era="+era).getContentText())?.duration_top/1000);
+}
+/**
+ * Returns the record log of a boss on wingman by bossId and patch era.
+ * 1. bossId: CellReference - ex.: 19691
+ *    Id of the boss on wingman
+ * 2. patch: Boolean - ex.: latest
+ *    Id of the patch on wingman
+ */
+function wingman_Boss_Record_Log(bossId, era) {
+  return "https://gw2wingman.nevermindcreations.de/log/"+JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era="+era).getContentText())?.link_top;
 }
