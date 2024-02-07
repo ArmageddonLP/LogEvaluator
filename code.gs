@@ -114,10 +114,12 @@ function wingman_Boss_Name(bossId) {
 }
 
 /**
- * Returns the current patch record of a boss on wingman by bossId.
+ * Returns the record of a boss on wingman by bossId and patch era.
  * 1. bossId: CellReference - ex.: 19691
  *    Id of the boss on wingman
+ * 2. patch: Boolean - ex.: latest
+ *    Id of the patch on wingman
  */
-function wingman_Boss_Record(bossId) {
-  return secondsToDuration(JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era=this").getContentText())?.duration_top/1000);
+function wingman_Boss_Record(bossId, era) {
+  return secondsToDuration(JSON.parse(UrlFetchApp.fetch("https://gw2wingman.nevermindcreations.de/api/boss?bossID="+bossId+"&era="+era).getContentText())?.duration_top/1000);
 }
